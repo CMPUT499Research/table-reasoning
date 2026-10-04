@@ -1,4 +1,4 @@
-# Literature Review — Table Reasoning: Knowing What Evidence Is Enough
+# Literature Reviews — Table Reasoning: Knowing What Evidence Is Enough
 
 ## Research Questions
 
