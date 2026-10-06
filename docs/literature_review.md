@@ -19,5 +19,7 @@
 | **Do LLMs Know When to NOT Answer? Investigating Abstention Abilities of Large Language Models (2025)** | [COLING 2025](https://aclanthology.org/2025.coling-main.627/) | RQ2 |
 | **Do LLMs Know When Evidence Is Insufficient? An Evidence Sufficiency Benchmark for Answer-Abstention Calibration in Retrieval-Augmented Generation (2026)** | [Computer Modeling in Engineering & Sciences](https://www.techscience.com/cmc/v89n1/68467) | RQ2 |
 | **TableBench: A Comprehensive and Complex Benchmark for Table Question Answering (2025)** | [AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/34739) | RQ1, RQ3 |
+| **The Question Damage Score for EvaluatingContext Reliance in Linguistic Reasoning** | [arXiv](https://arxiv.org/pdf/2608.27756) | RQ2 |
+
 
 *Note: These mappings indicate preliminary relevance, not necessarily the paper's exact research objectives. Read each paper to confirm its connection to our project.*
