@@ -21,5 +21,5 @@
 | **TableBench: A Comprehensive and Complex Benchmark for Table Question Answering (2025)** | [AAAI 2025](https://ojs.aaai.org/index.php/AAAI/article/view/34739) | RQ1, RQ3 |
 | **The Question Damage Score for EvaluatingContext Reliance in Linguistic Reasoning** | [arXiv](https://arxiv.org/pdf/2608.27756) | RQ2 |
 | **How Well Do LLMs Reason Over Tabular Data, Really? (2025)** | [arXiv](https://arxiv.org/abs/2505.07453) | RQ2, RQ3 |
-
+| **HiTab: A Hierarchical Table Dataset for Question Answering and Natural Language Generation(2021)** | [arXiv](https://arxiv.org/abs/2108.06712) | RQ1, RQ2, RQ3 |
 *Note: These mappings indicate preliminary relevance, not necessarily the paper's exact research objectives. Read each paper to confirm its connection to our project.*
