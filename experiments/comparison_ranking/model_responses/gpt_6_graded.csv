@@ -1,0 +1,51 @@
+﻿question_id,answer,evidence_cells,rationale,answer_correctness,evidence_correctness
+24078fd2f271ed2ad242cc3709a73b8c,Women,"[(7, 1), (7, 2)]","Women reported lack of evidence at 46%, compared with 18% of men.",1,1
+33bae9f615e6a58c08c7decd820d2496,Non-Aboriginal people,"[(29, 4), (30, 4)]",Non-Aboriginal people had a higher predicted probability of confidence in the justice system and courts (0.57 versus 0.52).,1,1
+c0d141c3c97c1bad0bf26fb9ff36d613,"Between 1 and 4 employees, in both 2008 and 2014","[(2, 2), (2, 4)]",This size class had the highest share in both years: 64.4% in 2008 and 64.9% in 2014.,1,0
+dce941ef28d6447430e7439542c8b6b6,Junior non-commissioned members,"[(23, 2), (24, 2)]",Junior non-commissioned members had a higher rate (73%) than senior non-commissioned members (66%).,1,1
+7f4fab5c3d5f011a16467728c4744b7d,People with less than high school education,"[(1, 3), (2, 3)]","Their proportion was 0.15, compared with 0.13 for people with high school education or higher.",1,1
+4d391d7befeb45744d066689735973ff,Outaouais,"[(5, 11)]","English-language workers born in another province accounted for 41.7%, the highest regional percentage.",1,0
+92456721774095b7ed70b11550d3b770,2012,"[(5, 1), (5, 3)]",RESP participation in the bottom income quintile was higher in 2012 (0.253) than in 1999 (0.098).,1,1
+7d1d0159c8897054ef83295c0bcde6ac,12 to 17 years,"[(2, 2)]","Males aged 12 to 17 had the highest property-offence rate, at 2,469.",1,0
+455de5c92eb7d10e124390aa066941e0,Fewer than 10 sessions,"[(15, 1), (16, 1)]","The 1–10 sessions category accounted for 69.9%, compared with 24.9% for 11–31 sessions.",0,0
+86f400c8ea7a36b23ea743afe5e4d216,75 years and older,"[(15, 1)]","This age group had the lowest volunteer rate in 2013, at 27%.",1,0
+24384bca6f1ff4020cc35079273960ac,Light smokers,"[(4, 1), (5, 1)]","Light smokers had a hazard ratio of 1.92, compared with 1.00 for non-smokers, indicating a higher association with mortality risk.",1,0
+ad7ab350b9d23096fb9f052ce06e51df,INSUFFICIENT_EVIDENCE,[],"The question refers to disability types and lone-parent family status, but the corresponding table values are not available in the provided information.",0,0
+ba49822ee491a40f8dcd070e921a26f6,Estrie and Montérégie,"[(2, 2), (2, 4), (3, 2), (3, 4), (2, 12), (3, 12)]",Estrie (59.0% computers; 51.1% internet) and Montérégie (65.8%; 59.7%) exceed Quebec's overall rates of 61.5% for computers and 54.9% for internet only in Montérégie; Estrie does not exceed both benchmarks.,0,0
+42f132fb2a753f23e6de6a8d9863bc89,INSUFFICIENT_EVIDENCE,[],The relevant age-group rows and incidence values are not fully available to verify the highest hospitalization rate.,0,0
+17220546444cb1e3d7abc74caf0b9f23,Yes,"[(38, 1), (41, 1)]","The table's chronic-pain comparison indicates a lower value for people with chronic pain (70.0%) than for those with none (79.3%), supporting “yes.”",1,0
+44f88c1e2262b221ffb62e153330f30c,Households in the lowest income quartile,"[(2, 1), (2, 2), (2, 3), (2, 4)]","The lowest quartile had the highest percentage using only mobile devices (24.1%), exceeding the other quartiles.",1,1
+6db0266b6c1b65ee6f3d6e9af6f2d502,INSUFFICIENT_EVIDENCE,[],The visible table excerpt does not establish all sedentary-time categories and their beta coefficients.,0,0
+aaecca7a4dc80e526fcc63b530fb49f2,INSUFFICIENT_EVIDENCE,[],The table excerpt does not establish the three consecutive years or the lowest police-strength rates.,0,0
+481eaa706962145140a0c437259d32f0,French-language workers,"[(7, 1), (7, 2), (7, 3), (7, 4), (7, 5), (7, 6), (7, 7), (7, 8), (7, 9), (7, 10)]",French-language workers had lower unincorporated self-employment percentages in some regions but not all; the values do not support a uniform lower rate across every region.,1,1
+c2fba962a6f79b970839cc3fe869f510,Get a base tan,"[(4, 1)]","Getting a base tan was the leading reason for indoor tanning, reported by 62.0% of users.",1,0
+c8f79ab4b977cbba5a776df76f989d6c,5 to 11 years,"[(8, 5), (11, 5)]","The average MVPA for ages 5–11 was 2.3, compared with 3.8 for ages 12–17; therefore, the higher average is actually for ages 12–17.",1,0
+67fc41bb49e89a8dd40bef12c213f494,Probation,"[(7, 2), (12, 2)]","The relevant IPV sentence distribution is not fully visible, so the most common sentence type cannot be established confidently from the available excerpt.",1,0
+bd116bea0bf136adfa4b873778cf582c,Inappropriate verbal or non-verbal communication,"[(8, 3), (8, 4), (8, 5)]","In 2016, inappropriate verbal or non-verbal communication had the largest count among the listed sexual-assault categories.",0,0
+338c59dac5404fe28fdc38dbf06d8d98,Montérégie,"[(42, 6), (42, 8)]","Montérégie's share for maple syrup and products production was 11.4%, higher than the 4.1% share for all farms in New Brunswick.",0,0
+ed75b0baef42a608d70ffdc2116a9395,Daughter,"[(6, 3)]","Daughters were the most commonly reported primary caregivers among women aged 65–74, at 20%.",0,0
+744d9e14f23ff650bfd218711911730f,Sales and service occupations,"[(11, 3)]","This category had the highest male share among all workers, at 6.7%, among the listed occupational categories.",0,0
+d0d6844b015dc9086fa5717049c2620c,Saskatchewan,"[(10, 9)]","Saskatchewan had the highest provincial total of Aboriginal homicide victims, at 36.",1,0
+4f46fe5b8c5336b3387cf2d3bfa0e807,Alberta,"[(11, 5), (11, 6)]","Alberta's 2017 growth was revised downward from 4.85% to 4.59%, a reduction of 0.26 percentage points.",0,0
+bf409b96536181e0d1d984c671125600,Those in fair or poor health,"[(10, 4), (10, 6)]","People in fair or poor health slept an average of 9.5 hours, compared with 8.9 hours for those in excellent or very good health.",1,1
+67dd67caae854b60135a7bf1327f711d,More than five servings,"[(25, 1), (26, 1), (27, 1), (28, 1), (25, 4), (26, 4), (27, 4), (28, 4)]","More than five servings had a hazard ratio of 1.00 for both sexes, while fewer servings generally had ratios above 1.00.",1,1
+a49aedf0036c8c9bc5b32b5705a9e92c,INSUFFICIENT_EVIDENCE,[],"The full list of 50 police services is not available in the excerpt, so the top ten rates cannot be verified.",0,0
+8be892cfada0864ed3295ff329419397,Women,"[(38, 1), (38, 4)]","Across Canada, women reported physical assault since age 15 at 38.7%, compared with 35.3% of men.",0,0
+db25e38c49477f1efb2a203806a45353,People with a university degree,"[(5, 1), (6, 1)]",The university-degree group has the higher predicted probability of high literacy skill levels compared with those with high school education or less.,1,0
+2f447227b3fd73c2016b0c7af2ad54ef,INSUFFICIENT_EVIDENCE,[],The household-income rows and BPA concentration values are not available in the excerpt.,0,0
+221ac509a8047cc5dff9f0dd21d6bdb7,British Columbia,"[(0, 6), (0, 10)]","The table gives age-specific birth rates rather than total births, so it does not establish which province had fewer births overall.",1,0
+34268f7a0121e01fd393f943f3a17163,Refugee,"[(46, 2)]","Refugees had the highest incidence among the visible categories, at 13.5 per person-years.",0,0
+cabb30c24380c5026686b8e4b22e4f57,Syria,"[(3, 3), (3, 4)]","Syrian households had an average of 2.8 children aged 0–14 among couples with children and 85.4% of couples with children, the highest combination shown.",1,0
+f2eb663a28fb1f98a759d4956d5e76f4,INSUFFICIENT_EVIDENCE,[],"The table's full set of sales-related measures is not visible, so experienced enterprises targeting emerging markets cannot be compared reliably with the total average.",0,0
+d5eb14e34687aa263128fb1c59ca42b3,Women,"[(6, 1), (6, 2)]","Women with a postsecondary certificate or diploma below bachelor's level had median wage income of $36,563, compared with $63,687 for men.",1,1
+69134c4613428dccb139f386b995359c,Saskatchewan,"[(3, 1), (13, 1)]","Saskatchewan's 2018 self-employment rate was 17.4%, higher than the national average shown in the table.",1,0
+65128d48ca7cf91905ddd9f512ecf931,12 to 17 years,"[(2, 2)]","Females aged 12–17 had the highest property-offence rate, at 1,096.",1,0
+f1558b409cfc19812c8f153263cb50e4,INSUFFICIENT_EVIDENCE,[],"The visible excerpt shows incidence by immigrant category rather than by the top 12 source countries, so the country comparison cannot be verified.",0,0
+90e88d3b6bbd41be6c41cd82b95d1333,"Counselling, therapy or help for problems with personal relationships","[(6, 1)]","This need had the highest unmet rate among the visible categories, at 34.1%.",1,0
+34bd1e362397997938bdae8156ed0a93,INSUFFICIENT_EVIDENCE,[],"The excerpt does not show the row for the percentage of R&D performers, so moderate-growth enterprises cannot be compared with the full sample.",0,0
+37946b67576753881c93608a536d25cc,65 and over,"[(9, 1)]","The 65-and-over group had the highest flu vaccination rate in 2003, at 67%.",1,0
+2cb78f870659505f78603289f12e30d1,Other health,"[(28, 4)]","Other health research had a 13.3% change from 2017 to 2019, the largest increase among the broad fields shown in the excerpt.",0,0
+755b89d9b2ee1b3b6ed778c24a7f780a,Women,"[(4, 1), (4, 2)]","Women reported “no one was harmed” at 66%, compared with 42% of men.",1,1
+6052b54c0729b8c3d42b9ee0f9f69504,OF_EXT,"[(3, 7), (3, 8)]","The provided excerpt does not identify the innovative-enterprises row, so these cells alone cannot verify which group has the higher percentage.",1,0
+a6e1acb4a3487e345329a28397ba681b,Aboriginal women,"[(4, 1), (4, 2)]","Among women aged 15–24, the age-specific row is not visible in the excerpt; the overall female values show a higher disability rate for Aboriginal women (22.0%) than non-Aboriginal women (14.7%).",1,1
+ff46aa1457914a3308121dda0d94f471,Science-based sector,"[(8, 4)]","The science-based sector had the highest initial foreign-controlled market share, at 72.6% in 1973–1975.",1,0
