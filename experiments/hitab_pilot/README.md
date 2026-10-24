@@ -43,7 +43,7 @@ Each prompt asks the model to return a structured Markdown table, which makes th
 
 ## 4. Model responses
 
-The pilot includes graded responses from three language models(prompt_v3 was used):
+The pilot includes graded responses from three language models(prompt_v2 was used):
 
 | Model | Results |
 | --- | --- |
