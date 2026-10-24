@@ -1,0 +1,121 @@
+# ============================================================
+# macOS
+# ============================================================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+# ============================================================
+# Python
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python build / package files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+
+# ============================================================
+# Python virtual environments
+# ============================================================
+
+.venv/
+venv/
+env/
+ENV/
+
+
+# ============================================================
+# Environment variables / API keys
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+
+
+# ============================================================
+# Jupyter
+# ============================================================
+
+.ipynb_checkpoints/
+
+
+# ============================================================
+# IDE / editor files
+# ============================================================
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+*~
+.vim/
+
+
+# ============================================================
+# Local / temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+
+tmp/
+temp/
+
+
+# ============================================================
+# HiTab source dataset
+#
+# Keep the raw dataset local rather than committing a copy.
+# Reproducibility should instead record the dataset revision,
+# source paths, hashes, and sampling scripts.
+# ============================================================
+
+data/dev_samples.jsonl
+data/test_samples.jsonl
+data/test_samples_qualitycheck.jsonl
+data/train_samples.jsonl
+data/tables.zip
+
+# Extracted HiTab tables, if tables.zip is unpacked locally
+data/tables/
+tables/
+
+
+# ============================================================
+# Local secrets / credentials
+# ============================================================
+
+credentials.json
+secrets.json
+api_keys.json
+
+
+# ============================================================
+# OS / miscellaneous
+# ============================================================
+
+Thumbs.db
+Desktop.ini
