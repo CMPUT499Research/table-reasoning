@@ -1,119 +1,506 @@
-# HiTab RQ1 Pilot Protocol
+# HiTab Evidence Identification Protocol
 
-## 1. Research question
+## 1. Research Question
 
-Our first research question is:
+This experiment primarily addresses **RQ1**:
 
-**Can language models identify the evidence needed to answer a question about a table?**
+> **Can language models identify the evidence needed to answer a question, and for what types of questions is this difficult?**
 
-For this pilot, each model receives a complete HiTab table and a question about that table. We want to see whether the model can identify the relevant cells and explain how they help answer the question.
+The goal is not only to determine whether a model produces the correct answer. We also evaluate whether the model identifies table cells that are sufficient to derive and justify that answer.
 
-This pilot focuses on evidence identification, not just whether the model gets the final answer right. We are not removing cells or testing what happens when information is missing yet. Those experiments may come later.
+This distinction is important because a model may produce a correct answer while citing incomplete, incorrect, or irrelevant evidence.
 
-## 2. Dataset and sample
+The broader project also investigates:
 
-We use the [HiTab dataset](https://github.com/microsoft/HiTab), which contains questions about tables with hierarchical row and column structures.
+- **RQ2 — Evidence sufficiency:** Given a question and only part of a table, can a model determine whether the available evidence is sufficient to answer it?
+- **RQ3 — Evidence support and structure:** Can a model accurately identify which parts of a table support its answer, and how do properties of the table's structure affect its reasoning?
 
-- **Dataset split:** Development (`dev`)
-- **Input file:** `data/dev_samples.jsonl`
-- **Sample size:** 30 questions
-- **Sampling seed:** `499`
-- **Question registry:** `experiments/hitab_pilot/questions.csv`
+The experiments in this directory currently focus primarily on **RQ1**. Controlled evidence-removal experiments for RQ2 are planned separately.
 
-The questions were selected by reading the non-empty JSONL records, sorting them by their string IDs, and randomly sampling 30 records with seed `499`. This procedure is implemented in `sample_questions.py`.
+---
 
-The sample is intended for developing and checking our experimental pipeline. We will keep the test split separate for a later evaluation.
+## 2. Experimental Stages
 
-The registry records the question, table ID, dataset information, and other details needed to prepare each model request. It does not include the gold answer or the annotations used to construct the human reference.
+The work in this directory contains two related but distinct stages.
 
-**Dataset version:** The protocol currently records commit `d179602662b490249baf068a76fbe4137029126e`. Before the experiment is finalized, we need to verify that this commit contains the exact development file used to generate our sample.
+### Stage 1 — 30-question mixed pilot
 
-The dataset's license and terms of use should be reviewed before redistributing any dataset-derived material.
+The original pilot contains **30 questions sampled from the HiTab development split**.
 
-## 3. Preparing the tables
+The sample contains questions requiring different forms of reasoning:
 
-HiTab represents tables using both a hierarchical structure and a grid of cell text. We need to turn these representations into a format that models can understand without losing the relationships between row headers, column headers, and data cells.
+- `lookup`
+- `arithmetic_aggregation`
+- `comparison_ranking`
 
-For each question, the model will receive:
-- The question text.
-- The table's contents.
-- The relevant row and column header paths for the data cells.
+This stage is used to evaluate whether models can identify supporting evidence across multiple types of table questions.
 
-Each data cell will have a stable, zero-based coordinate. Header paths will show how a cell fits into the table's hierarchy, including nested headers and merged cells.
+The fixed question registry is stored in:
 
-The planned serialization format is called `hitab-paths-v1`. We will finalize and test its implementation before using it for the experiment. Until then, it should be treated as a planned format rather than a completed component.
+- [`questions.csv`](questions.csv)
 
-The model must not receive HiTab's gold answer, linked-cell annotations, answer formulas, or reference-cell mappings. These are reserved for preparing and evaluating the human reference.
+The sampling procedure is stored in:
 
-## 4. Models
+- [`sample_questions.py`](sample_questions.py)
 
-We plan to evaluate two hosted models in this pilot:
+### Stage 2 — Comparison/ranking-focused experiment
 
-| Model | Access method | Role in the pilot |
-|---|---|---|
-| GLM-5.3 | NVIDIA API Catalog endpoint | Hosted model condition |
-| Gemini | Google's Gemini API | Hosted model condition |
+A later experiment focuses specifically on **comparison and ranking questions**.
 
-GLM-5.3 will be accessed through NVIDIA's API endpoint. Gemini will be accessed through Google's API.
+This experiment uses **50 questions** and a more explicit definition of sufficient evidence. In particular, models are instructed that identifying only the winning or selected value is not necessarily enough to establish a comparison or ranking.
 
-Before running the full sample, we will confirm the exact model identifiers and available settings for both services. We will record the model version, endpoint or provider, decoding settings, output limits, and any other relevant configuration.
+The prompt for this condition is:
 
-We will use the same table serialization, question, and evidence-identification instructions for both models. Where the APIs support comparable settings, we will keep those settings consistent. Any differences that cannot be aligned will be documented.
+- [`prompts/prompt_v3.md`](prompts/prompt_v3.md)
 
-Both models are hosted services, so this pilot compares two API-accessed models rather than comparing a locally run open-weight model against a hosted model.
+This 50-question experiment is a separate experimental condition and should not be merged with the original 30-question mixed pilot when reporting results.
 
-We will also record failed requests, malformed responses, retries, and other issues that could affect the results. We will not silently discard unsuccessful runs.
+Its question registry, model outputs, and evaluation results should be stored separately once finalized.
 
-## 5. Prompt and output format
+---
 
-Both models will receive the same version of the evidence-identification prompt, identified as `hitab-rq1-v1`.
+## 3. Dataset and Sampling
 
-The prompt will ask each model to identify the evidence needed to answer the question and return its response in a structured format.
+The experiments use the [HiTab](https://github.com/microsoft/HiTab) dataset.
 
-Before running the experiment, we will finalize the prompt and expected output schema. We will save the prompt version and its SHA-256 hash so that we can identify exactly which instructions were used.
+HiTab contains question-answer pairs associated with tables that may contain hierarchical row and column structures.
 
-If we change the prompt after testing begins, we will record the change and distinguish the affected runs rather than automatically combining them with earlier results.
+For the 30-question pilot:
 
-## 6. Human reference and evaluation
+| Item | Value |
+| --- | --- |
+| Dataset split | Development (`dev`) |
+| Source file | `data/dev_samples.jsonl` |
+| Sample size | 30 questions |
+| Sampling seed | `499` |
+| Dataset revision recorded in registry | `d179602662b490249baf068a76fbe4137029126e` |
 
-We need a human reference for each question so that we can judge whether a model identified sufficient evidence.
+The sampling script:
 
-Before reviewing model responses, we will prepare a reference packet for every sampled question. We will use the complete table and HiTab's existing answer and evidence annotations as starting points, then check the evidence ourselves.
+1. reads all non-empty examples from the HiTab development JSONL file;
+2. sorts examples by question ID;
+3. initializes Python's random sampler with seed `499`;
+4. randomly selects 30 questions; and
+5. writes the selected questions and their metadata to `questions.csv`.
 
-Each reference packet will record:
+The resulting 30-question sample is treated as fixed and is not resampled between model runs.
 
-- The data cells needed to support the answer.
-- The relevant row and column header paths.
-- The operation or comparison required to answer the question.
-- Other acceptable evidence that could also justify the answer.
+The HiTab test split is not used for this pilot.
 
-Where possible, two annotators will prepare or independently check the reference material. Differences will be discussed and resolved before evaluation. If only one annotator is available, we will record that the reference was prepared by a single annotator and report this as a limitation.
+---
 
-Evaluators will assess model responses without seeing which model produced them. They will judge the identified row paths, column paths, cells, and operations as `correct`, `partial`, or `incorrect`, then assign an overall evidence label.
+## 4. Table Representation
 
-Final-answer correctness will be recorded separately from evidence quality. A model may give the correct answer without identifying adequate supporting evidence, or identify useful evidence but make a mistake in its final answer.
+Each question is paired with its corresponding complete HiTab table.
 
-We will accept alternative evidence sets when they are sufficient to justify the answer, even if they do not exactly match the preferred cells in the reference packet.
+For the current experiments, tables are presented to models in a text representation with explicit row and column coordinates.
 
-## 7. Files and records
+A typical table is represented as:
 
-The pilot files will be kept under `experiments/hitab_pilot/`.
+```text
+Table title: ...
 
-- `questions.csv`: The selected questions and their metadata.
-- `prompt.md`: The evidence-identification prompt.
-- `protocol.md`: This experimental protocol.
-- `results.csv`: Raw model responses and run configurations.
-- `evaluations.csv`: Human evaluation labels.
-- `reference_packets/`: The human-prepared evidence references.
+Row 0: [0] ... | [1] ... | [2] ...
+Row 1: [0] ... | [1] ... | [2] ...
+...
+```
 
-We will keep raw model responses separate from human evaluation labels. API credentials will be stored outside the repository, and we will not commit credentials, model weights, or the raw HiTab dataset.
+Row and column indices begin at `0`.
 
-## 8. Limitations
+Header rows are included in the row numbering.
 
-This is a small pilot with 30 questions. Its main purpose is to check whether our data preparation, prompting, and evaluation procedures work as intended. It is not large enough to support broad claims about model performance or reliable rankings between models.
+Each model receives:
 
-The dataset is publicly available, so we cannot rule out the possibility that some questions or tables appeared in model training data.
+- the `question_id`;
+- the `table_id`;
+- the table title;
+- the complete table contents with coordinates; and
+- the question.
 
-HiTab's existing annotations are useful for preparing the human references, but they may not capture every valid way to support an answer. Human checks and adjudication are therefore important.
+The model is instructed to reason only from the supplied table.
 
-Finally, the way we serialize the table may affect the results. We will test the serialization on a small number of examples before running the full pilot and document the final format used.
+The model does **not** receive the human gold annotations when generating its response.
+
+The current `questions.csv` records `table_serialization_version` as `not_implemented`. Therefore, this protocol does not refer to the representation as `hitab-paths-v1` or claim that a finalized serialization format exists.
+
+If a formal serialization format is introduced later, it should receive a version identifier and be documented separately.
+
+---
+
+## 5. Human Gold Annotations
+
+Two annotators independently reviewed the original 30 questions:
+
+- Ahmed
+- Shula
+
+Their annotations are stored in:
+
+- [`30QA_gold_annotation_ajax.csv`](30QA_gold_annotation_ajax.csv)
+- [`30QA_gold_annotation_shula.csv`](30QA_gold_annotation_shula.csv)
+
+For each question, the annotation records:
+
+| Field | Description |
+| --- | --- |
+| `question_id` | HiTab question identifier |
+| `expected_answer` | Human-determined answer |
+| `primary_question_type` | Main reasoning type |
+| `evidence_cells` | Cells needed to derive and justify the answer |
+| `evidence_complexity` | Description of how much evidence is required |
+| `rationale(why evidence is enough?)` | Explanation of why the selected evidence is sufficient |
+
+The three primary question types are:
+
+- `lookup`
+- `arithmetic_aggregation`
+- `comparison_ranking`
+
+The two annotation files are **independent annotations**, not two separate gold standards.
+
+Disagreements should be reviewed and adjudicated before final results are reported. The adjudicated version should become the final human reference.
+
+Minor label inconsistencies such as `single_cell`, `single_cells`, `multiple_cell`, and `multiple_cells` should also be normalized during adjudication rather than silently interpreted during analysis.
+
+---
+
+## 6. Definition of Sufficient Evidence
+
+The central concept in this experiment is **evidence sufficiency**.
+
+Evidence is considered sufficient when the cited cells, together with the question, allow a reader to reproduce the reasoning and verify why the answer is correct.
+
+The goal is therefore not simply to locate a cell containing the final answer.
+
+### Lookup questions
+
+For a direct lookup, a single value cell may be sufficient when the question and table structure uniquely determine what that cell represents.
+
+Identifying row or column labels may also be necessary when the value cannot be interpreted unambiguously without them.
+
+### Arithmetic and aggregation questions
+
+The evidence must include the values needed to perform the required operation.
+
+For example, if the answer requires:
+
+```text
+48.4 - 32.8 = 15.6
+```
+
+both source values are necessary evidence.
+
+Providing only `15.6` or only one of the two source values is not sufficient evidence for the calculation.
+
+### Comparison and ranking questions
+
+Evidence must establish the comparison being claimed.
+
+For example, if a question asks which of two groups has the higher value, citing only the selected group's value is insufficient. The evidence must also contain the value needed for the relevant comparison.
+
+Likewise, for a maximum or minimum question, the cited evidence must be sufficient to establish that the selected candidate satisfies the requested ranking.
+
+This distinction is especially important in the comparison/ranking-focused experiment.
+
+---
+
+## 7. Prompt Versions
+
+Prompt development occurred iteratively. All prompt versions are retained because changes in instructions may affect model behaviour.
+
+### Prompt V1
+
+File:
+
+- [`prompts/prompt_v1.md`](prompts/prompt_v1.md)
+
+V1 is the original evidence-identification prompt.
+
+It asks the model to return:
+
+1. `question_id`
+2. `expected_answer`
+3. `primary_question_type`
+4. `evidence_cells`
+5. `evidence_complexity`
+6. `rationale(why evidence is enough?)`
+
+This version asks the model not only to identify evidence but also to classify the question type and evidence complexity.
+
+### Prompt V2
+
+File:
+
+- [`prompts/prompt_v2.md`](prompts/prompt_v2.md)
+
+V2 simplifies the output to:
+
+1. `question_id`
+2. `answer`
+3. `evidence_cells`
+4. `rationale`
+
+It is designed for the complete 30-question document and focuses more directly on answer correctness and evidence identification.
+
+### Prompt V3
+
+File:
+
+- [`prompts/prompt_v3.md`](prompts/prompt_v3.md)
+
+V3 is designed specifically for a **50-question comparison/ranking experiment**.
+
+It strengthens the definition of sufficient evidence by explicitly requiring models to include the values needed to establish a comparison or ranking.
+
+For example, models are instructed not to cite only the selected answer cell when additional cells are required to demonstrate that the answer is the highest, lowest, greater, smaller, more likely, or less likely alternative.
+
+### Prompt-version separation
+
+Results produced using different prompt versions should not automatically be treated as belonging to the same experimental condition.
+
+The prompt version used for a run should be recorded with the corresponding model output.
+
+If results from multiple prompt versions are compared, the prompt difference must be treated as an experimental difference rather than ignored.
+
+---
+
+## 8. Models
+
+The current repository contains graded pilot responses for three model conditions:
+
+- **DeepSeek**
+- **Gemini Flash**
+- **GPT-6**
+
+The corresponding files are:
+
+- [`model_responses/deepseek_pilot_graded.csv`](model_responses/deepseek_pilot_graded.csv)
+- [`model_responses/gemini_flash_pilot_graded.csv`](model_responses/gemini_flash_pilot_graded.csv)
+- [`model_responses/gpt_6_pilot_graded.csv`](model_responses/gpt_6_pilot_graded.csv)
+
+The earlier plan to use GLM 5.3 is no longer part of the current protocol.
+
+For final reporting, each run should record, where available:
+
+- exact model name and version;
+- provider;
+- prompt version;
+- date of execution;
+- generation settings; and
+- any relevant API or runtime configuration.
+
+These details should not be reconstructed from memory after the experiment.
+
+---
+
+## 9. Model Procedure
+
+Within a given experimental condition, each model receives the same question-table input and the same prompt instructions.
+
+For the 30-question condition, the complete document contains all 30 questions and their corresponding tables.
+
+For each question, the model must:
+
+1. read the question;
+2. reason only from the supplied table;
+3. determine an answer;
+4. identify the supporting evidence cells; and
+5. explain why those cells are sufficient.
+
+Models are explicitly instructed not to:
+
+- use external knowledge;
+- search the internet;
+- combine information across questions;
+- invent values;
+- invent coordinates; or
+- guess when the table does not provide sufficient evidence.
+
+When the provided table is insufficient, the prompt instructs the model to return `INSUFFICIENT_EVIDENCE`.
+
+---
+
+## 10. Evaluation
+
+Answer quality and evidence quality are evaluated separately.
+
+The current graded response files contain two primary evaluation fields:
+
+- `answer_correctness`
+- `evidence_correctness`
+
+Both are treated as binary indicators:
+
+```text
+1 = correct
+0 = incorrect
+```
+
+### Answer correctness
+
+`answer_correctness = 1` when the model's final answer agrees with the adjudicated human answer, allowing equivalent formatting where appropriate.
+
+Examples of formatting differences that should not by themselves cause failure include:
+
+- `30` versus `30%`, when the table clearly uses percentage units;
+- capitalization differences;
+- comma formatting in large numbers; and
+- equivalent numerical precision where the intended answer is unchanged.
+
+### Evidence correctness
+
+`evidence_correctness = 1` when the cited evidence is sufficient to derive and justify the model's answer.
+
+Evidence should be marked incorrect when, for example:
+
+- the model cites the wrong cells;
+- required source values are missing;
+- a comparison cites only one side of the comparison;
+- a ranking cites only the selected value without enough evidence to establish the ranking;
+- the model invents a coordinate;
+- the cited cells do not support the stated calculation; or
+- the evidence is unrelated to the answer.
+
+Exact coordinate agreement with one annotator is not required if the model identifies a different evidence set that is genuinely sufficient.
+
+Evidence grading should therefore evaluate **sufficiency**, not merely exact string matching against a gold annotation.
+
+---
+
+## 11. Primary Metrics
+
+Answer and evidence performance are reported separately.
+
+### Answer accuracy
+
+```text
+Answer Accuracy =
+number of questions with correct answers
+----------------------------------------
+total number of evaluated questions
+```
+
+### Evidence accuracy
+
+```text
+Evidence Accuracy =
+number of questions with sufficient evidence
+--------------------------------------------
+total number of evaluated questions
+```
+
+Because answer correctness and evidence correctness are separate, four outcomes are possible:
+
+| Answer | Evidence | Interpretation |
+| --- | --- | --- |
+| Correct | Correct | Model answered correctly and justified it correctly |
+| Correct | Incorrect | Model reached the right answer without sufficient evidence |
+| Incorrect | Correct | Model identified useful evidence but failed in reasoning or final answer |
+| Incorrect | Incorrect | Both answer and evidence failed |
+
+Results should also be examined by question type:
+
+- lookup;
+- arithmetic/aggregation; and
+- comparison/ranking.
+
+The comparison/ranking follow-up should be analyzed separately because it uses a different question distribution and a more specific prompt.
+
+---
+
+## 12. Failure Analysis
+
+In addition to aggregate accuracy, model errors should be examined qualitatively.
+
+Useful failure categories include:
+
+- wrong cell;
+- missing evidence cell;
+- incomplete comparison;
+- incomplete ranking;
+- wrong arithmetic operation;
+- correct evidence but incorrect reasoning;
+- correct answer with insufficient evidence;
+- unnecessary or over-inclusive evidence;
+- row/column misinterpretation;
+- header or table-structure confusion; and
+- unsupported answer.
+
+These categories are intended to help explain **how evidence reasoning fails**, rather than only measuring whether it fails.
+
+---
+
+## 13. Files
+
+The current pilot directory contains:
+
+```text
+experiments/hitab_pilot/
+├── README.md
+├── protocol.md
+├── questions.csv
+├── sample_questions.py
+├── 30QA_gold_annotation_ajax.csv
+├── 30QA_gold_annotation_shula.csv
+│
+├── prompts/
+│   ├── prompt_v1.md
+│   ├── prompt_v2.md
+│   └── prompt_v3.md
+│
+└── model_responses/
+    ├── deepseek_pilot_graded.csv
+    ├── gemini_flash_pilot_graded.csv
+    └── gpt_6_pilot_graded.csv
+```
+
+### File purposes
+
+| File | Purpose |
+| --- | --- |
+| `questions.csv` | Fixed 30-question HiTab sample |
+| `sample_questions.py` | Reproducible sampling script |
+| `30QA_gold_annotation_ajax.csv` | Ahmed's independent human annotation |
+| `30QA_gold_annotation_shula.csv` | Shula's independent human annotation |
+| `prompts/prompt_v1.md` | Initial evidence-identification prompt |
+| `prompts/prompt_v2.md` | Revised 30-question prompt |
+| `prompts/prompt_v3.md` | Comparison/ranking-focused 50-question prompt |
+| `model_responses/*.csv` | Model responses with manual grading |
+
+The two human annotation files should eventually be followed by a final adjudicated gold annotation file.
+
+---
+
+## 14. Limitations
+
+The original pilot contains only 30 questions. It is useful for developing and testing the evidence-identification methodology, but it is too small to support broad claims about language-model performance.
+
+HiTab is publicly available, so some questions or tables may have appeared in model training data.
+
+Human evidence annotation also involves judgment. Multiple evidence sets may legitimately support the same answer, especially in complex tables. This is why model evidence should be evaluated for sufficiency rather than only exact agreement with one reference set.
+
+Prompt wording can substantially affect evidence behaviour. Results obtained using V1, V2, and V3 should therefore not be pooled without accounting for the prompt condition.
+
+The table representation may also influence performance. The current experiments use explicit row and column coordinates, and results should be interpreted as model performance under that representation.
+
+Finally, the current human annotations have not yet been replaced by a single adjudicated gold file. Final reported results should use the adjudicated reference rather than arbitrarily choosing one annotator's version.
+
+---
+
+## 15. Intended Contribution
+
+The purpose of this work is not simply to create another table question-answering accuracy benchmark.
+
+The broader goal is to develop a framework for evaluating whether language models understand **what evidence is needed to support an answer**.
+
+The planned progression is:
+
+> **correct answer → correct evidence → sufficient evidence → knowing when evidence is missing**
+
+The project aims to contribute:
+
+1. an evidence-identification evaluation protocol for table question answering;
+2. human gold annotations describing sufficient evidence;
+3. analysis of evidence-identification failures across reasoning types;
+4. targeted comparison/ranking experiments where sufficiency is especially important; and
+5. controlled evidence-removal experiments for testing whether models recognize insufficient evidence.
