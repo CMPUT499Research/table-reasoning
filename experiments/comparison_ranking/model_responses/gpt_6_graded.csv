@@ -49,3 +49,4 @@ f1558b409cfc19812c8f153263cb50e4,INSUFFICIENT_EVIDENCE,[],"The visible excerpt s
 6052b54c0729b8c3d42b9ee0f9f69504,OF_EXT,"[(3, 7), (3, 8)]","The provided excerpt does not identify the innovative-enterprises row, so these cells alone cannot verify which group has the higher percentage.",1,0
 a6e1acb4a3487e345329a28397ba681b,Aboriginal women,"[(4, 1), (4, 2)]","Among women aged 15–24, the age-specific row is not visible in the excerpt; the overall female values show a higher disability rate for Aboriginal women (22.0%) than non-Aboriginal women (14.7%).",1,1
 ff46aa1457914a3308121dda0d94f471,Science-based sector,"[(8, 4)]","The science-based sector had the highest initial foreign-controlled market share, at 72.6% in 1973–1975.",1,0
+Total(percentage),,,,62,24
