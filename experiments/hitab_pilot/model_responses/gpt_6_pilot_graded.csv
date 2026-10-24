@@ -1,32 +1,32 @@
-question_id,answer,evidence_cells,rationale (why evidence is enough?),answer_correctness,evidence_correctness,Column 1,Column 2,Column 3,Column 4,Column 5,Column 6,Column 7,Column 8,Column 9,Column 10,Column 11,Column 12,Column 13,Column 14,Column 15,Column 16,Column 17
-227c9346228b91fd88ae0b556266d02a,2.20%,"[(21, 8)]","Row 21 is gross domestic product, and column 8 is the 2012–13 inflation-adjusted annual growth rate.",1,1,,,,,,,,,,,,,,,,,
-3408851cb0dcd6fb97de58c9093a4817,Tippeligaen,"[(2, 2)]","Row 2 identifies Stabæk's 2011 season and its league, Tippeligaen.",1,1,,,,,,,,,,,,,,,,,
-" [(14, 3)]",18.4,"[(10,1), (10,3)]",The complete Toronto row and its 2000 and 2012 values are not available in the extracted evidence.,0,0,,,,,,,,,,,,,,,,,
-9d842adc62ccbed618402a6719be51ba,Prince Edward Island,"[(4, 7)]","Prince Edward Island has the lowest police strength rate among the provinces shown, at 137 officers per 100,000 population.",1,0,,,,,,,,,,,,,,,,,
-5b6d5027cbe68bd4efebcfbf6584657c,"189,493",,Row 14 gives the total number of cases involving multiple charges in column 3.,1,1,,,,,,,,,,,,,,,,,
-b7f98b5dc07cebf63b861e20d6786c56,30,"[(18, 10)]","The Kitchener–Cambridge–Waterloo row is not included in the available extracted rows, so its motor vehicle theft rate change cannot be verified.",1,1,,,,,,,,,,,,,,,,,
-994c6c2624f9cb09230f0a1c4da01cac,31.3 minutes,"[(9, 1)]",The questionnaire-measured recreation row reports 31.3 minutes in the all-youth mean column.,1,1,,,,,,,,,,,,,,,,,
-52d5dd67e1b954d8dbb5253cff68d67b,25.10%,"[(5, 6)]",The construction managers row gives 25.1% in the 2016 proportion-of-workers-aged-55-and-over column.,1,0,,,,,,,,,,,,,,,,,
-ab5da69e6e28c105bb462a8e2a02acba,2%,"[(5, 3)]",The recent immigrant column reports 2% of the total population for men; the female recent immigrant percentage is also 2%.,0,0,,,,,,,,,,,,,,,,,
-24359adfe1cee75dad62c5c776405e37,"27.9, 30.9, 25.3, 32.9, and 38.6 years","[(5, 1), (5, 2), (5, 3), (5, 4), (5, 5)]","Row 5 provides the average ages for First Nations, Métis, Inuit, visible minorities, and non-Aboriginal groups, respectively.",0,0,,,,,,,,,,,,,,,,,
-d8d8d8f1216b8cf293c95d972cc03d8c,44,"[(16, 3)]",The available rows do not include the sexual-assault stranger-offender percentage needed to answer the question.,0,0,,,,,,,,,,,,,,,,,
-e5ab91cb80629abd65dac3904ff5f317,65.1,"[(7, 4), (12, 10), (9, 10), (12, 4), (20, 10)]","The relevant California, Texas, New York, Florida, and Ohio extramural funding amounts are not all available in the extracted rows, preventing a reliable total percentage calculation.",1,1,,,,,,,,,,,,,,,,,
-4cf8036d6ebe3752c1a3b9ced4fedfd0,737 appearances,"[(19, 13)]",The career total row reports 737 appearances in column 13.,1,1,,,,,,,,,,,,,,,,,
-139228fe44fc8514d430f0d26c738276,Inuit Nunangat,"[(17, 5)]","Inuit Nunangat has the highest reported percentage for hunting, fishing, or trapping for money or to supplement income, at 12%.",1,0,,,,,,,,,,,,,,,,,
-4fcfdd18337be90c240b7ac0666767d9,20.20%,"[(23, 2)]",The Asia or Oceania row gives a missed rate of 20.2% in column 2.,1,1,,,,,,,,,,,,,,,,,
-84ebf4c9633de75837877e98ffc1d418,Primera División,"[(2, 2)]",The 2014 season row for Independiente identifies the league as Primera División; the table does not provide a separate 2012–13 season entry.,1,1,,,,,,,,,,,,,,,,,
-d62a5c96744c38ef7492c471942d9efc,226 appearances," [(23, 9)]",The career total row reports 226 appearances in column 9.,0,0,,,,,,,,,,,,,,,,,
-5898bf447a1216111860fc90694d9677,35.60%,"[(53, 2)]",The 2011 row gives a missed rate of 35.6% in column 2.,1,1,,,,,,,,,,,,,,,,,
-ec8c4772d466806cd49f9d8db0cd975b,0.4% and 0.2%,"[(2, 3), (2, 4)]",The row for households without home internet access gives 0.4% in the third quartile and 0.2% in the highest quartile.,1,1,,,,,,,,,,,,,,,,,
-f084422a39aa94e0dfb26b6d1998505b,Black women,"[(6, 1)]","Black women have a younger-to-older worker ratio of 1.72, higher than the 0.96 ratio for women in the rest of the population.",1,0,,,,,,,,,,,,,,,,,
-791acdec156182205abe28f5603322eb,1.8 times,"[(5, 3)]","Economic-class immigrants have a ratio of 1.8 in knowledge-based industries, indicating they are 1.8 times as likely as the Canadian-born comparison group to own such a business.",1,1,,,,,,,,,,,,,,,,,
-e8d0bab15a1bd7eb5be9657b2857c24e,10.7 percentage points,"[(8, 1), (15, 1)]","The total unemployment rate for Arab women is 16.0%, compared with 5.3% for women who are not a visible minority; the difference is 10.7 percentage points.",1,1,,,,,,,,,,,,,,,,,
-33073338d0de2a0513fcfffb75249687,78.2 minutes,"[(12, 1)]",The questionnaire-measured total row reports an all-youth mean of 78.2 minutes across all activity domains.,1,1,,,,,,,,,,,,,,,,,
-4d4072e70e4200f0f13f72bb0f76536f,Seniors aged 75 and over,"[(7, 3)]","The participation rate for using technology is 22% among those aged 75 and over, compared with 33% among those aged 65–74.",1,0,,,,,,,,,,,,,,,,,
-8bbfc8a469b26d6b01003ed89f69a734,60.10%,"[(7, 1)]",The all-farm-types row reports 60.1% of operations as male-only.,1,1,,,,,,,,,,,,,,,,,
-fe9e5d5ba5790e22572a9cba82e3f2de,"People with diabetes or a chronic condition affecting their lungs, heart, or kidneys","[(41, 4)]","Those reporting the condition have an excellent/very good mental-health proportion of 15.8%, compared with 84.2% among those without it.",1,0,,,,,,,,,,,,,,,,,
-5ebec1f351f3d4f0ff149bd6ab04edba,15%,"[(17, 2)]",The male immigrant column reports 15% for refugees.,1,1,,,,,,,,,,,,,,,,,
-ea344a48c28c0cb8f43bb4a65fbf6468,"$6,836","[(3, 1)]","The all-family-units row gives a homeowner debt difference of $6,836 between families with positive expectations and other families.",1,1,,,,,,,,,,,,,,,,,
-7881d82dc708ae9370f1a06d421c2d70,1.40%,"[(13, 7)]",The shopping-centre-or-street row reports 1.4 in the all-donors breakdown column.,1,1,,,,,,,,,,,,,,,,,
-cad0ee7627430d8414ee7bf56e6bc95e,"$21,017 million","[(9, 1)]","The other nonprofit organizations row reports total R&D expenditures of 21,017 million dollars in column 1.",1,1,,,,,,,,,,,,,,,,,
-,,,,83.33333333,63.33333333,,,,,,,,,,,,,,,,,
+question_id,answer,evidence_cells,rationale (why evidence is enough?),answer_correctness,evidence_correctness
+227c9346228b91fd88ae0b556266d02a,2.20%,"[(21, 8)]","Row 21 is gross domestic product, and column 8 is the 2012–13 inflation-adjusted annual growth rate.",1,1
+3408851cb0dcd6fb97de58c9093a4817,Tippeligaen,"[(2, 2)]","Row 2 identifies Stabæk's 2011 season and its league, Tippeligaen.",1,1
+" [(14, 3)]",18.4,"[(10,1), (10,3)]",The complete Toronto row and its 2000 and 2012 values are not available in the extracted evidence.,0,0
+9d842adc62ccbed618402a6719be51ba,Prince Edward Island,"[(4, 7)]","Prince Edward Island has the lowest police strength rate among the provinces shown, at 137 officers per 100,000 population.",1,0
+5b6d5027cbe68bd4efebcfbf6584657c,"189,493",,Row 14 gives the total number of cases involving multiple charges in column 3.,1,1
+b7f98b5dc07cebf63b861e20d6786c56,30,"[(18, 10)]","The Kitchener–Cambridge–Waterloo row is not included in the available extracted rows, so its motor vehicle theft rate change cannot be verified.",1,1
+994c6c2624f9cb09230f0a1c4da01cac,31.3 minutes,"[(9, 1)]",The questionnaire-measured recreation row reports 31.3 minutes in the all-youth mean column.,1,1
+52d5dd67e1b954d8dbb5253cff68d67b,25.10%,"[(5, 6)]",The construction managers row gives 25.1% in the 2016 proportion-of-workers-aged-55-and-over column.,1,0
+ab5da69e6e28c105bb462a8e2a02acba,2%,"[(5, 3)]",The recent immigrant column reports 2% of the total population for men; the female recent immigrant percentage is also 2%.,0,0
+24359adfe1cee75dad62c5c776405e37,"27.9, 30.9, 25.3, 32.9, and 38.6 years","[(5, 1), (5, 2), (5, 3), (5, 4), (5, 5)]","Row 5 provides the average ages for First Nations, Métis, Inuit, visible minorities, and non-Aboriginal groups, respectively.",0,0
+d8d8d8f1216b8cf293c95d972cc03d8c,44,"[(16, 3)]",The available rows do not include the sexual-assault stranger-offender percentage needed to answer the question.,0,0
+e5ab91cb80629abd65dac3904ff5f317,65.1,"[(7, 4), (12, 10), (9, 10), (12, 4), (20, 10)]","The relevant California, Texas, New York, Florida, and Ohio extramural funding amounts are not all available in the extracted rows, preventing a reliable total percentage calculation.",1,1
+4cf8036d6ebe3752c1a3b9ced4fedfd0,737 appearances,"[(19, 13)]",The career total row reports 737 appearances in column 13.,1,1
+139228fe44fc8514d430f0d26c738276,Inuit Nunangat,"[(17, 5)]","Inuit Nunangat has the highest reported percentage for hunting, fishing, or trapping for money or to supplement income, at 12%.",1,0
+4fcfdd18337be90c240b7ac0666767d9,20.20%,"[(23, 2)]",The Asia or Oceania row gives a missed rate of 20.2% in column 2.,1,1
+84ebf4c9633de75837877e98ffc1d418,Primera División,"[(2, 2)]",The 2014 season row for Independiente identifies the league as Primera División; the table does not provide a separate 2012–13 season entry.,1,1
+d62a5c96744c38ef7492c471942d9efc,226 appearances," [(23, 9)]",The career total row reports 226 appearances in column 9.,0,0
+5898bf447a1216111860fc90694d9677,35.60%,"[(53, 2)]",The 2011 row gives a missed rate of 35.6% in column 2.,1,1
+ec8c4772d466806cd49f9d8db0cd975b,0.4% and 0.2%,"[(2, 3), (2, 4)]",The row for households without home internet access gives 0.4% in the third quartile and 0.2% in the highest quartile.,1,1
+f084422a39aa94e0dfb26b6d1998505b,Black women,"[(6, 1)]","Black women have a younger-to-older worker ratio of 1.72, higher than the 0.96 ratio for women in the rest of the population.",1,0
+791acdec156182205abe28f5603322eb,1.8 times,"[(5, 3)]","Economic-class immigrants have a ratio of 1.8 in knowledge-based industries, indicating they are 1.8 times as likely as the Canadian-born comparison group to own such a business.",1,1
+e8d0bab15a1bd7eb5be9657b2857c24e,10.7 percentage points,"[(8, 1), (15, 1)]","The total unemployment rate for Arab women is 16.0%, compared with 5.3% for women who are not a visible minority; the difference is 10.7 percentage points.",1,1
+33073338d0de2a0513fcfffb75249687,78.2 minutes,"[(12, 1)]",The questionnaire-measured total row reports an all-youth mean of 78.2 minutes across all activity domains.,1,1
+4d4072e70e4200f0f13f72bb0f76536f,Seniors aged 75 and over,"[(7, 3)]","The participation rate for using technology is 22% among those aged 75 and over, compared with 33% among those aged 65–74.",1,0
+8bbfc8a469b26d6b01003ed89f69a734,60.10%,"[(7, 1)]",The all-farm-types row reports 60.1% of operations as male-only.,1,1
+fe9e5d5ba5790e22572a9cba82e3f2de,"People with diabetes or a chronic condition affecting their lungs, heart, or kidneys","[(41, 4)]","Those reporting the condition have an excellent/very good mental-health proportion of 15.8%, compared with 84.2% among those without it.",1,0
+5ebec1f351f3d4f0ff149bd6ab04edba,15%,"[(17, 2)]",The male immigrant column reports 15% for refugees.,1,1
+ea344a48c28c0cb8f43bb4a65fbf6468,"$6,836","[(3, 1)]","The all-family-units row gives a homeowner debt difference of $6,836 between families with positive expectations and other families.",1,1
+7881d82dc708ae9370f1a06d421c2d70,1.40%,"[(13, 7)]",The shopping-centre-or-street row reports 1.4 in the all-donors breakdown column.,1,1
+cad0ee7627430d8414ee7bf56e6bc95e,"$21,017 million","[(9, 1)]","The other nonprofit organizations row reports total R&D expenditures of 21,017 million dollars in column 1.",1,1
+,,,,83.33333333,63.33333333
